@@ -1,0 +1,30 @@
+@import "compass/css3/transition";
+
+.item {
+  float: left;
+  margin: 10px;
+
+  .entry{
+    text-align: center;
+
+    .pic {
+      width: 230px;
+      height: 230px;
+
+      %img {
+        max-width: 230px;
+        max-height: 230px;
+      }
+    }
+
+    .op {
+      opacity: 0;
+      @include transition-property("opacity");
+      @include transition-duration(0.3s);
+    }
+
+    &:hover .op {
+      opacity: 1;
+    }
+  }
+}

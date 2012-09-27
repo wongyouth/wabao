@@ -1,0 +1,10 @@
+.item
+  .entry
+    .pic
+      %img(src="#{item.pic_url}" title="#{item.title}")
+    .desc
+      = item.nick
+      \/
+      %span.price= "RMB#{item.price}"
+    .op
+      = link_to "Buy", item.click_url, class: "btn btn-success"
