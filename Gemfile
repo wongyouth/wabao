@@ -44,3 +44,7 @@ gem 'kaminari'
 
 
 gem "devise"
+
+group :development, :test do
+  gem 'pry-nav'
+end
