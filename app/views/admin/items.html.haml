@@ -1,0 +1,10 @@
+
+= form_tag '/admin/items', :method => 'get' do
+  = text_field_tag 'keyword', params[:keyword]
+  = select_tag 'category_id', options_from_collection_for_select(Category.all, :id, :name, params[:category_id]), :include_blank => true
+  = submit_tag 'Search'
+
+= render :partial => 'item', :collection => @items
+
+#item-images
+  %ul

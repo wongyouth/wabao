@@ -1,4 +1,14 @@
 Wabao::Application.routes.draw do
+  get "admin" => "admin#index"
+
+  get "admin/categories" => "admin#categories"
+
+  get "admin/items" => "admin#items"
+
+  get "admin/images" => "admin#images"
+
+  get "admin/stats" => "admin#stats"
+
   mount RailsAdmin::Engine => '/admin/rails', :as => 'rails_admin'
 
   devise_for :users

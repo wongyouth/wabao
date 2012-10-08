@@ -1,0 +1,5 @@
+= form_tag '/admin/items', :method => 'get' do
+  = label_tag 'keyword'
+  = text_field_tag 'keyword', params[:keyword]
+  = label_tag 'category'
+  = select_tag 'category_id', options_from_collection_for_select(Category.all, :id, :name, params[:category_id]), :include_blank => true
