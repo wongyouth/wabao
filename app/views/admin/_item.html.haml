@@ -2,7 +2,7 @@
 .item
   .entry
     .pic
-      %a(href='#' data-id="#{item.num_iid}")
+      %a(href='#' data-id="#{item.num_iid}" data-title="#{item.title}" data-price="#{item.price}" data-commission="#{item.commission}" data-nick="#{item.nick}" data-click_url="#{item.click_url}" data-volume="#{item.volume}")
         %img(src="#{item.pic_url}" title="#{strip_tags(item.title)}")
     .desc
       .pull-right= "#{item.volume}件/30天"
