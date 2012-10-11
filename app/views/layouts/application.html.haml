@@ -26,8 +26,8 @@
           %a.brand(href="/") Wabao
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
+              %li= link_to "后台", admin_path
+              %li= link_to "分类", categories_path
               %li= link_to "Link 3", "/path3"
             - if controller.controller_name == "items" 
               %form.navbar-search.pull-right(url=items_path)

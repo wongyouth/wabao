@@ -1,7 +1,7 @@
 Wabao::Application.routes.draw do
-  get "admin" => "admin#index"
+  resources :categories
 
-  get "admin/categories" => "admin#categories"
+  get "admin" => "admin#index"
 
   get "admin/items" => "admin#items"
 

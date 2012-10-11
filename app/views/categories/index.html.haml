@@ -1,0 +1,18 @@
+- if @categories.empty?
+  .alert.alert-info
+    No categories here.
+
+- else
+  %table.table.table-hover
+    %thead
+      %tr
+        %th #
+        %th name
+        %th slug
+    - for cat in @categories
+      %tr
+        %td= cat.id
+        %td= cat.name
+        %td= cat.slug
+
+=link_to "新增分类", new_categories_path, class: "btn btn-primary"

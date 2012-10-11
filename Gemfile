@@ -47,4 +47,5 @@ gem "devise"
 
 group :development, :test do
   gem 'pry-nav'
+  gem 'rspec-rails'
 end
