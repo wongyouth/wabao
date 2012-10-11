@@ -1,10 +1,11 @@
 .item
   .entry
     .pic
-      %img(src="#{item.pic_url}" title="#{item.title}")
+      %a(href="#{item.click_url}" target="_blank")
+        %img(src="#{item.pic_url}" title="#{strip_tags(item.title)}")
     .desc
       = item.nick
       \/
       %span.price= "RMB#{item.price}"
     .op
-      = link_to "Buy", item.click_url, class: "btn btn-success"
+      = link_to "Buy", item.click_url, class: "btn btn-success", target: "_blank"

@@ -1,9 +1,12 @@
 
-= form_tag '/admin/items', :method => 'get' do
-  = text_field_tag 'keyword', params[:keyword]
-  = select_tag 'category_id', options_from_collection_for_select(Category.all, :id, :name, params[:category_id]), :include_blank => true
-  = submit_tag 'Search'
+.search-area
+  = form_tag '/admin/items', class: "form-search", :method => 'get' do
+    = text_field_tag 'keyword', params[:keyword]
+    = select_tag 'category_id', options_from_collection_for_select(Category.all, :id, :name, params[:category_id]), :include_blank => true
+    = submit_tag 'Search', class: "btn btn-primary"
 
-= render :partial => 'item', :collection => @items
+.search-list
+  %ul
+    = render :partial => 'item', :collection => @items
 
 #item-images.modal.hide

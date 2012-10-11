@@ -4,18 +4,12 @@ class ItemsController < ApplicationController
     @items = @q.result.page(params[:page])
   end
 
-  def show
-    @q = Item.search(params[:q])
-    @items = @q.result.page(params[:page])
-    render :index2
-  end
-
   def create
-    item = Item.new params(:item)
-    if item.save
-      render :head => :ok
+    item = Item.new params[:item]
+    if Item.find_by_num_iid(item[:num_iid]) || item.save
+      head :ok
     else
-      render :text => 'error'
+      render :text => item.errors.full_messages, :status => :bad_request
     end
   end
 end

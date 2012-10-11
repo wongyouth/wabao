@@ -11,3 +11,34 @@
     }
   }
 }
+
+.search-area {
+  position: relative;
+}
+
+.search-list {
+  ul {
+    list-style:none;
+    overflow: hidden;
+    margin: 0px;
+
+    li {
+      list-style:none;
+      float:left;
+      padding: 5px;
+      margin: 5px;
+      background-color: #f7f7f7;
+      color: #b3b3b3;
+
+      img {
+        max-width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}
+
+.hero-area {
+  width: 500px;
+  margin: 200px auto;
+}

@@ -1,18 +1,19 @@
-$('.entry a').click (event)->
+$('.search-list a').click (event)->
   event.preventDefault()
+  _this = $(this)
   $.get(
     '/admin/images',
     {item_id: $(this).data('id')},
     (data)->
       $('#item-images').modal()
       $('#item-images').append("<div id='item-info' style='display: none' />")
-      $('#item-info').data('id'         , $(this).data('id'))
-      $('#item-info').data('price'      , $(this).data('price'))
-      $('#item-info').data('commission' , $(this).data('commission'))
-      $('#item-info').data('volume'     , $(this).data('volume'))
-      $('#item-info').data('nick'       , $(this).data('nick'))
-      $('#item-info').data('title'      , $(this).data('title'))
-      $('#item-info').data('click_url'  , $(this).data('click_url'))
+      $('#item-info').attr('data-id'         , _this.data('id'))
+      $('#item-info').attr('data-price'      , _this.data('price'))
+      $('#item-info').attr('data-commission' , _this.data('commission'))
+      $('#item-info').attr('data-volume'     , _this.data('volume'))
+      $('#item-info').attr('data-nick'       , _this.data('nick'))
+      $('#item-info').attr('data-title'      , _this.data('title'))
+      $('#item-info').attr('data-click_url'  , _this.data('click_url'))
       $('#item-images').append("<ul />")
       $.each(data, (k,v) ->
         $('ul', '#item-images').append("<li><a href='#'><img src='#{v['url']}' /></a></li>")
@@ -24,7 +25,7 @@ $("#item-images").on "hide", ->
   $('#item-info').remove()
   $('#item-images ul').remove()
 
-$("#item-images ul a").click (event)->
+$("#item-images").on "click", "a", (event)->
   event.preventDefault()
   $.post(
     '/items',
@@ -40,6 +41,5 @@ $("#item-images ul a").click (event)->
     }},
     ->
       $("#item-images").modal('hide')
-    "json"
   )
 

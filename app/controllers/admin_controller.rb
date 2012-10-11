@@ -15,7 +15,7 @@ class AdminController < ApplicationController
   def items
     hash = {
       :method => 'taobao.taobaoke.items.get',
-      :fields => "num_iid,title,nick,pic_url,price,click_url, commission,commission_num,volume",
+      :fields => "cid,num_iid,title,nick,pic_url,price,click_url, commission,commission_num,volume",
       :keyword => params[:keyword],
       :cid => params[:category_id].presence || '0',
       :order => 'credit_desc',
@@ -27,6 +27,7 @@ class AdminController < ApplicationController
     }
 
     @items = Top.request(hash)['taobaoke_items_get_response']['taobaoke_items']['taobaoke_item']
+    puts @items
   end
 
   def images
