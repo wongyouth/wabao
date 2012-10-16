@@ -1,0 +1,42 @@
+@import "compass/css3/border-radius";
+
+.slide-panel {
+  position: fixed;
+  right: -80px;
+  bottom: 95px;
+  z-index: 1000;
+
+  div {
+    @include border-radius;
+    padding: 5px 10px;
+    margin-top: 3px;
+    background-color: lighten(#6b2, 10%);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    i {
+      margin-right: 5px;
+    }
+
+  }
+
+  .go_top {
+    display: none;
+  }
+}
+
+#qq-service {
+  position: fixed;
+  right: -5px;
+  bottom: -35px;
+  z-index: 1000;
+  width: 95px;
+  height: 95px;
+  background-image: url(/assets/qq-service.png);
+
+  &:hover {
+    right: 0;
+    bottom: 0;
+  }
+}

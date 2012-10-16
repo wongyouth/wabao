@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(:version => 20121007091644) do
     t.string   "nick"
     t.string   "pic_url"
     t.string   "click_url"
-    t.decimal  "price",      :precision => 10, :scale => 2
-    t.decimal  "commission", :precision => 10, :scale => 2
+    t.decimal  "price",       :precision => 10, :scale => 2
+    t.decimal  "commission",  :precision => 10, :scale => 2
     t.integer  "volume"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "category_id"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|

@@ -1,3 +1,11 @@
+%ul.nav.nav-tabs
+  %li{class: params[:category_id].blank? && "active"}
+    =link_to "所有", root_path
+
+  - @categories.each do |c|
+    %li{class: c.id.to_s == params[:category_id] && "active"}
+      =link_to c.name, root_path(category_id: c.id)
+
 .items
   = render @items
 

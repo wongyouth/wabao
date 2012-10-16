@@ -31,7 +31,7 @@
               %li= link_to "Link 3", "/path3"
             - if controller.controller_name == "items" 
               %form.navbar-search.pull-right(url=items_path)
-                %input.search-query(type="text" placeholder="search" name="q[title_cont]" value="#{@q.title_cont}")
+                %input.search-query(type="text" placeholder="搜索" name="q[title_cont]" value="#{@q.title_cont}")
 
     .container
       .content
@@ -40,8 +40,32 @@
       .clearfix
       %footer
         %p &copy; Company 2012
+
+      .slide-panel
+        .go_top
+          %i(class='icon-arrow-up')
+          返回顶部
+        .bookmark
+          %i(class='icon-star')
+          加入收藏
+        .feedback
+          %i(class='icon-comment')
+          联系我们
+
+      %a(href="http://wpa.qq.com/msgrd?v=3&uin=5805167&site=qq&menu=yes" id="qq-service" target="_blank")
+
     /
       Javascripts
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
+
+
+    /
+      Baidu Button BEGIN
+    %script{type: "text/javascript", id: "bdshare_js", data: "type=slide&amp;img=1&amp;pos=left"}
+    %script{type: "text/javascript", id: "bdshell_js"}
+    :javascript
+      document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+    /
+      Baidu Button END

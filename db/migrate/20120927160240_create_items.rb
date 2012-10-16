@@ -9,6 +9,7 @@ class CreateItems < ActiveRecord::Migration
       t.decimal :price, precision: 10, scale: 2
       t.decimal :commission, precision: 10, scale: 2
       t.integer :volume
+      t.integer :category_id
 
       t.timestamps
     end

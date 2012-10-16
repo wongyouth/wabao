@@ -37,7 +37,8 @@ $("#item-images").on "click", "a", (event)->
       commission: $('#item-info').data('commission'),
       volume: $('#item-info').data('volume'),
       click_url: $('#item-info').data('click_url'),
-      pic_url: $('img', this).attr('src')
+      pic_url: $('img', this).attr('src'),
+      category_id: $("#category_id option").filter(":selected").attr("value") || "0"
     }},
     ->
       $("#item-images").modal('hide')
