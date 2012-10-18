@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'rails-i18n'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,6 +10,7 @@ gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'rails_admin'
+gem "galetahub-simple_captcha", :require => "simple_captcha"
 
 # Gems used only for assets and not required
 # in production environments by default.

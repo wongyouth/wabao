@@ -41,3 +41,5 @@ jQuery ->
     else
       alert("请点击右键或者按<Ctrl-D>把本地址放入收藏夹中，如有疑问请联系客服！")
 
+  $('.feedback').click ->
+    $('.feedback-form').modal()

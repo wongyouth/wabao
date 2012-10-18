@@ -34,6 +34,10 @@
                 %input.search-query(type="text" placeholder="搜索" name="q[title_cont]" value="#{@q.title_cont}")
 
     .container
+      - flash.each do |name, msg|
+        %div(class="alert alert-#{name}")
+          %button(type="button" class="close" data-dismiss="alert" aria-hidden="true") &times;
+          = msg
       .content
         = yield
 
@@ -53,6 +57,20 @@
           联系我们
 
       %a(href="http://wpa.qq.com/msgrd?v=3&uin=5805167&site=qq&menu=yes" id="qq-service" target="_blank")
+
+    .feedback-form.modal.hide.fade
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+        %h3 感谢您的建议，投诉，以及咨询！
+      .modal-body
+        = form_for Feedback.new do |f|
+          = f.label :title, "主题"
+          = f.text_field :title, class: "span6"
+          = f.label :body, "内容"
+          = f.text_area :body, class: "span6"
+          = f.simple_captcha label: "验证码："
+          = f.submit "提交"
+
 
     /
       Javascripts

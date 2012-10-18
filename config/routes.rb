@@ -1,4 +1,6 @@
 Wabao::Application.routes.draw do
+  resources :feedbacks
+
   resources :categories
 
   get "admin" => "admin#index"
