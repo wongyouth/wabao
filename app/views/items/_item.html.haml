@@ -1,11 +1,10 @@
-.item
-  .entry
-    .pic
-      %a(href="#{item.click_url}" target="_blank")
-        %img(src="#{item.pic_url}" title="#{strip_tags(item.title)}")
-    .desc
-      = item.nick
-      \/
-      %span.price= "RMB#{item.price}"
-    .op
-      = link_to "Go shopping", item.click_url, class: "btn btn-success", target: "_blank"
+%li.span3.home
+  .thumbnail
+    %a(href="#{item.click_url}" target="_blank")
+      %img(src="#{item.pic_url}" title="#{strip_tags(item.title)}")
+  .desc
+    = item.nick
+    \/
+    %span.price= "RMB#{item.price}"
+  .op
+    = link_to "Shopping", item.click_url, class: "btn btn-success", target: "_blank"

@@ -1,4 +1,4 @@
-$('.search-list a').click (event)->
+$('.search a').click (event)->
   event.preventDefault()
   _this = $(this)
   $.get(

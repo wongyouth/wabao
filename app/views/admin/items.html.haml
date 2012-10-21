@@ -5,8 +5,10 @@
     = select_tag 'category_id', options_from_collection_for_select(Category.all, :id, :name, params[:category_id]), :include_blank => true
     = submit_tag 'Search', class: "btn btn-primary"
 
-.search-list
-  %ul
-    = render :partial => 'item', :collection => @items
+%ul.thumbnails
+  = render :partial => 'item', :collection => @items
 
 #item-images.modal.hide
+  .modal-header
+    %button(type='button' class='close' data-dismiss='modal') &times;
+    %h3 选取一张图片为该宝贝的显示图片

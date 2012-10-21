@@ -28,7 +28,7 @@
             %ul.nav
               %li= link_to "后台", admin_path
               %li= link_to "分类", categories_path
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "管理", rails_admin_path
             - if controller.controller_name == "items" 
               %form.navbar-search.pull-right(url=items_path)
                 %input.search-query(type="text" placeholder="搜索" name="q[title_cont]" value="#{@q.title_cont}")
@@ -69,6 +69,8 @@
           = f.label :body, "内容"
           = f.text_area :body, class: "span6"
           = f.simple_captcha label: "验证码："
+          %p
+            未登录用户，如果您想收到回馈，请写入您的QQ或MSN、Gtalk、Skype、Email、电话，我们将尽快联系您！
           = f.submit "提交"
 
 

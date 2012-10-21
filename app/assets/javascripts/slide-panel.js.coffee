@@ -6,15 +6,6 @@ jQuery ->
       $(this).css('right', '-80px')
   )
 
-  $('.qq-service').hover(
-    ->
-      $(this).css('right', '0')
-      $(this).css('bottom', '0')
-    ->
-      $(this).css('right', '-5px')
-      $(this).css('bottom', '-35px')
-  )
-
   $('.go_top').click ->
     $('body').animate { scrollTop: 0 }, 800
 
@@ -43,3 +34,12 @@ jQuery ->
 
   $('.feedback').click ->
     $('.feedback-form').modal()
+
+  $('.qq-service').hover(
+    ->
+      $(this).css('right', '0')
+      $(this).css('bottom', '0')
+    ->
+      $(this).css('right', '-5px')
+      $(this).css('bottom', '-35px')
+  )

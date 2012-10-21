@@ -6,7 +6,7 @@
     %li{class: c.id.to_s == params[:category_id] && "active"}
       =link_to c.name, root_path(category_id: c.id)
 
-.items
+%ul.thumbnails
   = render @items
 
 .clearfix
