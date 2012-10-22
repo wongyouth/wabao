@@ -1,0 +1,16 @@
+%table.table.stats
+  %thead
+    %tr
+      %th 分类
+      %th 条目
+      %th 点击
+      %th 点击/条目
+  %tbody
+    - @categories.each do |i|
+      %tr
+        %td= i.name
+        %td= c = i.items.count
+        %td= s = i.items.sum(:click_counter)
+        %td= c == 0 ? 0 : 1.0 * s / c
+
+= paginate @categories, theme: 'twitter-bootstrap'

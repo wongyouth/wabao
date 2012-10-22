@@ -1,4 +1,10 @@
 .hero-area
+  -#%ul.nav.nav-tabs.search
+    -#%li.active
+      -#%a(href="#" data-cid="0")全部
+    -#- Category.all.each do |c|
+      -#%li
+        %a(href="#" data-cid="#{c.id}")= c.name
   = form_tag '/admin/items', method: 'get', class: 'form-search' do
     = text_field_tag 'keyword', params[:keyword]
     = select_tag 'category_id', options_from_collection_for_select(Category.all, :id, :name, params[:category_id]), :include_blank => true, class: "input-small"

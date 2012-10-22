@@ -1,0 +1,25 @@
+%table.table.stats
+  %thead
+    %tr
+      %th #
+      %th name
+      %th pic
+      %th counter
+      %th Shop
+      %th price
+      %th commission
+      %th action
+  %tbody
+    - @items.each do |i|
+      %tr
+        %td= i.num_iid
+        %td= strip_tags i.title
+        %td
+          %img(src="#{i.pic_url}")
+        %td= i.click_counter
+        %td= i.nick
+        %td= i.price
+        %td= i.commission
+        %td= link_to "delete", item_path(i), method: "delete"
+
+= paginate @items, theme: 'twitter-bootstrap'

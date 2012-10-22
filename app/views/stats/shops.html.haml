@@ -1,0 +1,16 @@
+%table.table.stats
+  %thead
+    %tr
+      %th 店铺
+      %th 条目
+      %th 点击
+      %th 点击/条目
+  %tbody
+    - @items.each do |i|
+      %tr
+        %td= i.nick
+        %td= c = i.item_count
+        %td= s = i.sum_click
+        %td= c == 0 ? 0 : 1.0 * s / c
+
+= paginate @items, theme: 'twitter-bootstrap'

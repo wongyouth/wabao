@@ -1,0 +1,11 @@
+- content_for :content do
+  %ul.nav.nav-pills
+    %li(class="#{controller.action_name == 'index' && 'active'}")
+      = link_to "宝贝", stats_path
+    %li(class="#{controller.action_name == 'shops' && 'active'}")
+      = link_to "按店铺", shops_stats_path
+    %li(class="#{controller.action_name == 'categories' && 'active'}")
+      = link_to "按分类", categories_stats_path
+  = yield
+
+= render template: "layouts/application"

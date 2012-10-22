@@ -15,7 +15,7 @@
     %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114")
 
   %body
-    .navbar.navbar-fixed-top
+    .navbar.navbar-fixed-top.inverse
       .navbar-inner
 
         .container
@@ -26,9 +26,10 @@
           %a.brand(href="/") Wabao
           .container.nav-collapse
             %ul.nav
-              %li= link_to "后台", admin_path
               %li= link_to "分类", categories_path
-              %li= link_to "管理", rails_admin_path
+              %li= link_to "宝贝", admin_path
+              %li= link_to "统计", stats_path
+              %li= link_to "后台", rails_admin_path
             - if controller.controller_name == "items" 
               %form.navbar-search.pull-right(url=items_path)
                 %input.search-query(type="text" placeholder="搜索" name="q[title_cont]" value="#{@q.title_cont}")
@@ -39,7 +40,7 @@
           %button(type="button" class="close" data-dismiss="alert" aria-hidden="true") &times;
           = msg
       .content
-        = yield
+        = content_for?(:content) ? yield(:content) : yield
 
       .clearfix
       %footer

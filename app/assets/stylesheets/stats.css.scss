@@ -1,0 +1,8 @@
+$width: 80px;
+
+.stats {
+  img {
+    max-width: $width;
+    max-height: $width;
+  }
+}

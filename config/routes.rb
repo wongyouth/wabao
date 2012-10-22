@@ -1,4 +1,11 @@
 Wabao::Application.routes.draw do
+  resources :stats do
+    collection do
+      get "shops"
+      get "categories"
+    end
+  end
+
   resources :feedbacks
 
   resources :categories

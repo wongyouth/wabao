@@ -16,11 +16,13 @@ class AdminController < ApplicationController
     hash = {
       :method => 'taobao.taobaoke.items.get',
       :fields => "num_iid,title,nick,pic_url,price,click_url, commission,commission_num,volume",
-      :order => 'credit_desc',
+      :sort => 'credit_desc',
       :guarantee => 'true',
       :start_commissionRate => '500',
       :end_commissionRate => '5000',
       :mall_item => 'true',
+      :page_no => '1',
+      :outer_code => 'abc',
       :pid => Top::PID
     }
 
