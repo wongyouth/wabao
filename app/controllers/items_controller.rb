@@ -8,6 +8,14 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.new params[:item]
+    # get promotion price
+    prom = OpenTaobao.get({
+      method: 'taobao.ump.promotion.get',
+      item_id: item[:num_iid]
+    })
+
+    item.fetch_promotion_price
+
     if Item.find_by_num_iid(item[:num_iid]) || item.save
       head :ok
     else

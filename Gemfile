@@ -4,6 +4,8 @@ gem 'rails', '3.2.8'
 gem 'rails-i18n'
 gem 'devise-i18n'
 #gem 'rails_admin-i18n'
+gem 'cancan'
+gem 'open_taobao'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

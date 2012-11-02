@@ -5,16 +5,37 @@
 
   .thumbnail {
     border: none;
-  }
+    box-shadow: none;
 
-  .op {
-    opacity: 0;
-    @include transition-property("opacity");
-    @include transition-duration(0.3s);
-  }
+    .desc {
+      margin: 10px;
 
-  &:hover .op {
-    opacity: 1;
+      .through {
+        text-decoration: line-through;
+      }
+
+      .grey {
+        color: grey;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .price:before {
+        content: '￥'
+      }
+    }
+
+    .op {
+      opacity: 0;
+      @include transition-property("opacity");
+      @include transition-duration(0.3s);
+    }
+
+    &:hover .op {
+      opacity: 1;
+    }
   }
 }
 

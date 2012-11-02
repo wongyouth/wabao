@@ -1,2 +1,3 @@
-$('.item .entry .pic_url').click ->
-  alert('hope')
+$ ->
+  $('.item .entry .pic_url').click ->
+    alert('hope')

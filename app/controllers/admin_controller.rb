@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   end
 
   def categories
-    @categories = Top.request({
+    @categories = OpenTaobao.get({
       :method => 'taobao.itemcats.get',
       :fields => 'cid,parent_id,name,is_parent',
       :parent_cid => 0
@@ -13,39 +13,12 @@ class AdminController < ApplicationController
   end
 
   def items
-    hash = {
-      :method => 'taobao.taobaoke.items.get',
-      :fields => "num_iid,title,nick,pic_url,price,click_url, commission,commission_num,volume",
-      :sort => 'credit_desc',
-      :guarantee => 'true',
-      :start_commissionRate => '500',
-      :end_commissionRate => '5000',
-      :mall_item => 'true',
-      :page_no => '1',
-      :outer_code => 'abc',
-      :pid => Top::PID
-    }
-
-    if params[:keyword].present?
-      hash.merge! keyword: params[:keyword]
-    else
-      hash.merge! cid: params[:category_id].presence || '0'
-    end
-
-    puts hash
-    puts Top.request(hash)
-    @items = Top.request(hash)['taobaoke_items_get_response']['taobaoke_items']['taobaoke_item']
-  rescue
-    @items = []
+    @items = Item.fetch_items(params)['taobaoke_items_get_response']['taobaoke_items']['taobaoke_item'] rescue []
   end
 
   def images
     item_id = params[:item_id]
-    @images = Top.request({
-      :method => 'taobao.item.get',
-      :fields => 'prop_img.url,item_img.url,nick',
-      :num_iid => item_id
-    })
+    @images = Item.fetch_images(item_id)
 
     item = @images['item_get_response']['item']
     imgs = []
