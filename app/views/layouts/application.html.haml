@@ -25,11 +25,21 @@
             %span.icon-bar
           %a.brand(href="/") Wabao
           .container.nav-collapse
-            %ul.nav
-              %li= link_to "分类", categories_path
-              %li= link_to "宝贝", admin_path
-              %li= link_to "统计", stats_path
-              %li= link_to "后台", rails_admin_path
+            - if signed_in?
+              %ul.nav
+                %li= link_to "分类", categories_path
+                %li= link_to "宝贝", admin_path
+                %li= link_to "统计", stats_path
+                %li= link_to "后台", rails_admin_path
+
+            %ul.pull-right.nav
+              - if user_signed_in?
+                %li= link_to current_user.email, '#'
+                %li= link_to '退出', destroy_user_session_path, method: 'delete'
+                %li= image_tag "#{(request.ssl? ? 'https://secure' : 'http://www')}.gravatar.com/avatar/#{Digest::MD5.hexdigest current_user.email}?s=30", :style => 'padding-top:5px'
+              - else
+                %li= link_to '登录', new_user_session_path
+
             - if controller.controller_name == "items" 
               %form.navbar-search.pull-right(url=items_path)
                 %input.search-query(type="text" placeholder="搜索" name="q[title_cont]" value="#{@q.title_cont}")

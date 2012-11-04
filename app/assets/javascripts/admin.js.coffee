@@ -9,6 +9,7 @@ $ ->
         $('#item-images').modal()
         $('#item-images').append("<div id='item-info' style='display: none' />")
         $('#item-info').attr('data-id'         , _this.data('id'))
+        $('#item-info').attr('data-cid'        , _this.data('cid'))
         $('#item-info').attr('data-price'      , _this.data('price'))
         $('#item-info').attr('data-commission' , _this.data('commission'))
         $('#item-info').attr('data-volume'     , _this.data('volume'))
@@ -32,14 +33,14 @@ $ ->
       '/items',
       {item: {
         num_iid: $('#item-info').data('id'),
+        category_id: $('#item-info').data('cid'),
         nick: $('#item-info').data('nick'),
         title: $('#item-info').data('title'),
         price: $('#item-info').data('price'),
         commission: $('#item-info').data('commission'),
         volume: $('#item-info').data('volume'),
         click_url: $('#item-info').data('click_url'),
-        pic_url: $('img', this).attr('src'),
-        category_id: $("#category_id option").filter(":selected").attr("value") || "0"
+        pic_url: $('img', this).attr('src')
       }},
       ->
         $("#item-images").modal('hide')
