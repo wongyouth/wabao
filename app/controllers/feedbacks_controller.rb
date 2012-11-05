@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class FeedbacksController < ApplicationController
+  load_and_authorize_resource except: :create
+
   # GET /feedbacks
   # GET /feedbacks.json
   def index

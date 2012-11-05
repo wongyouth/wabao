@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  load_and_authorize_resource except: [:index, :show]
+
   def index
     @q = Item.search(params[:q])
     @items = @q.result.page(params[:page])
