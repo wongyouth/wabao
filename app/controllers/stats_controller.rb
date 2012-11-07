@@ -1,5 +1,5 @@
 class StatsController < ApplicationController
-  load_and_authorize_resource
+  authorize_resource class: false
 
   def index
     @items = Item.page(params[:page])
