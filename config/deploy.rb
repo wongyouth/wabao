@@ -1,3 +1,9 @@
+# add config/deploy to load_path
+$: << File.expand_path('../deploy/', __FILE__)
+
+require 'bundler/capistrano'
+require 'capistrano_database'
+
 set :application, "wabao"
 set :repository,  "git@wongyouth.dyndns.info:wabao.git"
 
