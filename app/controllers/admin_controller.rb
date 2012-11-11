@@ -15,7 +15,7 @@ class AdminController < ApplicationController
   end
 
   def items
-    @items = Item.fetch_items(params)['taobaoke_items_get_response']['taobaoke_items']['taobaoke_item'] rescue []
+    @items = Item.fetch_items(params, current_user)['taobaoke_items_get_response']['taobaoke_items']['taobaoke_item'] rescue []
   end
 
   def images
@@ -26,7 +26,7 @@ class AdminController < ApplicationController
     imgs = []
     imgs << item['item_imgs']['item_img'] if item['item_imgs']
     imgs << item['prop_imgs']['prop_img'] if item['prop_imgs']
-    render :json => imgs.flatten
+    render :json => { images: imgs.flatten, cid: item['cid'] }
   end
 
   def stats

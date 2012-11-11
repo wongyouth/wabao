@@ -1,6 +1,6 @@
 %li.span3.home
   .thumbnail
-    %a(href="#{item_path(item)}" target="_blank")
+    %a(href="#{item_path(item)}" target="_blank" data-cid="#{item.category_id}")
       %img(src="#{item.pic_url}" title="#{strip_tags(item.title)}")
     .desc
       = strip_tags(item.title).truncate(28, omission: '')

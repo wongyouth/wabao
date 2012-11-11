@@ -30,12 +30,12 @@ class Item < ActiveRecord::Base
     def fetch_images(item_id)
       OpenTaobao.get({
         :method => 'taobao.item.get',
-        :fields => 'prop_img.url,item_img.url,nick',
+        :fields => 'cid,prop_img.url,item_img.url,nick',
         :num_iid => item_id
       })
     end
 
-    def fetch_items(params)
+    def fetch_items(params, user)
       hash = {
         :method => 'taobao.taobaoke.items.get',
         :fields => "num_iid,title,nick,pic_url,price,click_url, commission,commission_num,volume",

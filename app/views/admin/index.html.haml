@@ -7,4 +7,5 @@
         %a(href="#" data-cid="#{c.id}")= c.name
   = form_tag '/admin/items', method: 'get', class: 'form-search' do
     = text_field_tag 'keyword', params[:keyword]
+    = hidden_field_tag 'category_id', '0'
     = button_tag "Search", class: "btn btn-primary"

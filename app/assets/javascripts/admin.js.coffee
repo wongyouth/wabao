@@ -8,8 +8,9 @@ $ ->
       (data)->
         $('#item-images').modal()
         $('#item-images').append("<div id='item-info' style='display: none' />")
+        console.log(data.cid)
         $('#item-info').attr('data-id'         , _this.data('id'))
-        $('#item-info').attr('data-cid'        , _this.data('cid'))
+        $('#item-info').attr('data-cid'        , data.cid)
         $('#item-info').attr('data-price'      , _this.data('price'))
         $('#item-info').attr('data-commission' , _this.data('commission'))
         $('#item-info').attr('data-volume'     , _this.data('volume'))
@@ -17,7 +18,7 @@ $ ->
         $('#item-info').attr('data-title'      , _this.data('title'))
         $('#item-info').attr('data-click_url'  , _this.data('click_url'))
         $('#item-images').append("<ul />")
-        $.each(data, (k,v) ->
+        $.each(data.images, (k,v) ->
           $('ul', '#item-images').append("<li><a href='#'><img src='#{v['url']}' /></a></li>")
         )
       'json'
