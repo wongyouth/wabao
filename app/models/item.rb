@@ -55,7 +55,6 @@ class Item < ActiveRecord::Base
         hash.merge! cid: params[:category_id].presence || '0'
       end
 
-      puts hash
       OpenTaobao.get hash
     end
   end

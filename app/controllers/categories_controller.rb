@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
   def new
     parent_id = params[:category_id] || 0
-    @categories = Top.request({
+    @categories = OpenTaobao.request({
       :method => 'taobao.itemcats.get',
       :fields => 'cid,parent_id,name,is_parent',
       :parent_cid => parent_id
