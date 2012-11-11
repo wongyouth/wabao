@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
   attr_accessible :click_url, :commission, :num_iid, :pic_url, :price, :nick, :title, :volume, :category_id, :promotion_price
 
   belongs_to :category
+  belongs_to :user
 
   def fetch_promotion_price
     ret = OpenTaobao.get({
@@ -44,7 +45,7 @@ class Item < ActiveRecord::Base
         :end_commissionRate => '5000',
         :mall_item => 'true',
         :page_no => '1',
-        :outer_code => '0',
+        :outer_code => user.id,
         :pid => OpenTaobao.config['pid']
       }
 

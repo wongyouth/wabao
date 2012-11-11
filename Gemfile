@@ -55,4 +55,9 @@ gem "devise"
 group :development, :test do
   gem 'pry-nav'
   gem 'rspec-rails'
+  gem 'capistrano-unicorn', :require => false
+end
+
+group :production do
+  gem 'unicorn'
 end

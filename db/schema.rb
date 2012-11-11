@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102163020) do
+ActiveRecord::Schema.define(:version => 20121111065317) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121102163020) do
     t.datetime "updated_at",                                                    :null => false
     t.integer  "click_counter",                                  :default => 0
     t.decimal  "promotion_price", :precision => 10, :scale => 2
+    t.integer  "user_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

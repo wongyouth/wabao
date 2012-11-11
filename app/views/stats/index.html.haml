@@ -8,6 +8,7 @@
       %th Shop
       %th price
       %th commission
+      %th Promotion Price
       %th action
   %tbody
     - @items.each do |i|
@@ -20,6 +21,7 @@
         %td= i.nick
         %td= i.price
         %td= i.commission
+        %td= i.promotion_price
         %td= link_to "delete", item_path(i), method: "delete"
 
 = paginate @items, theme: 'twitter-bootstrap'
