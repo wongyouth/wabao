@@ -1,5 +1,5 @@
 # Set your full path to application.
-app_path = "/u/apps/wabao"
+app_path = "/u/apps/wabao/current"
 
 # Set unicorn options
 worker_processes 2
