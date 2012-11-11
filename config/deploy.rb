@@ -35,7 +35,7 @@ role :db,  "wongyouth.dyndns.info", :primary => true # This is where Rails migra
 # end
 
 require 'capistrano-unicorn'
-after 'deploy:restart', 'unicorn:restart' # app IS NOT preloaded
+#after 'deploy:restart', 'unicorn:restart' # app IS NOT preloaded
 #after 'deploy:restart', 'unicorn:reload'  # app preloaded
 
 after 'deploy:start', 'unicorn:start'
