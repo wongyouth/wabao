@@ -34,6 +34,18 @@ role :db,  "wongyouth.dyndns.info", :primary => true # This is where Rails migra
 #   end
 # end
 
+namespace :deploy do
+  namespace :assets do
+    desc "deploy the precompiled assets"
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      run_locally("rake assets:clean assets:precompile RAILS_ENV=#{rails_env} #{asset_env}")
+      top.upload("public/assets", "#{release_path}/public/", :via => :scp, :recursive => true)
+      run_locally("rm -rf public/assets")
+    end
+  end
+end
+
+
 require 'capistrano-unicorn'
 #after 'deploy:restart', 'unicorn:restart' # app IS NOT preloaded
 #after 'deploy:restart', 'unicorn:reload'  # app preloaded
