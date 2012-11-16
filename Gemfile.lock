@@ -30,9 +30,6 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bootstrap-kaminari-views (0.0.2)
-      kaminari (>= 0.13)
-      rails (>= 3.1)
     bootstrap-sass (2.1.1.0)
     builder (3.0.4)
     cancan (1.6.8)
@@ -233,7 +230,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-kaminari-views
   cancan
   capistrano-unicorn
   coffee-rails (~> 3.2.1)
