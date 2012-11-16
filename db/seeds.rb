@@ -18,3 +18,13 @@
     volume: "1#{i}"
   )
 end
+
+if User.all.size == 0
+  User.create!({
+    :email => 'wongyouth@gmail.com',
+    :roles => ['admin'],
+    :password => 'ryan12345',
+    :password_confirmation => 'ryan12345'
+  })
+end
+

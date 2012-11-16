@@ -38,7 +38,7 @@ namespace :deploy do
   namespace :assets do
     desc "deploy the precompiled assets"
     task :precompile, :roles => :web, :except => { :no_release => true } do
-      run_locally("rake assets:clean assets:precompile RAILS_ENV=#{rails_env} #{asset_env}")
+      run_locally("bundle exec rake assets:clean assets:precompile RAILS_ENV=#{rails_env} #{asset_env}")
       top.upload("public/assets", "#{release_path}/public/", :via => :scp, :recursive => true)
       run_locally("rm -rf public/assets")
     end
