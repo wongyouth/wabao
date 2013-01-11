@@ -1,17 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 gem 'rails-i18n'
 gem 'devise-i18n'
 #gem 'rails_admin-i18n'
 gem 'cancan'
 gem 'open_taobao'
+gem 'highline'
+
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'rails_admin'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
