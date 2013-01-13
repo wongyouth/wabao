@@ -42,7 +42,7 @@
 
             - if controller.controller_name == "items" 
               %form.navbar-search.pull-right(url=items_path)
-                %input.search-query(type="text" placeholder="搜索" name="q[title_cont]" value="#{@q.title_cont}")
+                %input.search-query(type="text" placeholder="搜索" name="q[title_cont]")
 
     .container
       - flash.each do |name, msg|

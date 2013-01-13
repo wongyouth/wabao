@@ -11,14 +11,18 @@ gem 'highline'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
+gem 'chinese_pinyin'
+gem "devise"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'mongoid', "~> 3.0.0"
 gem 'haml-rails'
 gem 'rails_admin'
-gem "galetahub-simple_captcha", :require => "simple_captcha"
+#gem 'galetahub-simple_captcha', :require => 'simple_captcha', git: 'git://github.com/galetahub/simple-captcha.git'
+gem "wolcanus-simple_captcha", :require => "simple_captcha"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,7 +38,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'ransack'
 gem 'kaminari'
 
 # To use ActiveModel has_secure_password
@@ -53,12 +56,17 @@ gem 'kaminari'
 # gem 'debugger'
 
 
-gem "devise"
 
 group :development, :test do
   gem 'pry-nav'
   gem 'rspec-rails'
   gem 'capistrano-unicorn', :require => false
+  if RUBY_VERSION > '1.9.'
+    gem 'debugger'
+  else
+    gem 'ruby-debug' 
+  end
+  gem 'pry-nav'
 end
 
 group :production do

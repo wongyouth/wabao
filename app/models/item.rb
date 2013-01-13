@@ -1,8 +1,37 @@
-class Item < ActiveRecord::Base
+class Item
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  belongs_to :category, index: true
+  belongs_to :user
+
+  field :num_iid         , type: Integer
+  field :title           , type: String
+  field :nick            , type: String
+  field :pic_url         , type: String
+  field :click_url       , type: String
+  field :price           , type: BigDecimal
+  field :commission      , type: BigDecimal
+  field :volume          , type: String
+  field :slug            , type: String
+  field :click_counter   , type: Integer    , default: 0
+  field :promotion_price , type: BigDecimal
+
   attr_accessible :click_url, :commission, :num_iid, :pic_url, :price, :nick, :title, :volume, :category_id, :promotion_price
 
-  belongs_to :category
-  belongs_to :user
+  Sanitizer = HTML::FullSanitizer.new.freeze
+
+  before_create do
+    self.slug = Pinyin.t Sanitizer.sanitize(title), '-'
+  end
+
+  def to_param
+    slug
+  end
+
+  def self.search(q)
+    q ? Item.any_of(title: /#{q[:title_cont]}/i) : Item.scoped
+  end
 
   def fetch_promotion_price
     ret = OpenTaobao.get({
@@ -45,7 +74,7 @@ class Item < ActiveRecord::Base
         :end_commissionRate => '5000',
         :mall_item => 'true',
         :page_no => '1',
-        :outer_code => user.id,
+        :outer_code => user.id.to_s[0..7],
         :pid => OpenTaobao.config['pid']
       }
 

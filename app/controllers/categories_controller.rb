@@ -18,10 +18,11 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    categories = params[:data]
-    if Category.create JSON.parse(categories)
+    categories = JSON.parse params[:data]
+    if Category.collection.insert categories
       redirect_to :action => :index
     else
+      @categories = categories.map {|c| Category.new c}
       render :new
     end
   end
