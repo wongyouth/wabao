@@ -1,0 +1,13 @@
+%tr(id="category_#{category.id}")
+  %td
+    = category.id
+
+  %td
+    = link_to category.name, categories_path(parent_id: category._id)
+  %td
+    - if category.show
+      %span.label.label-success
+        =link_to "显示", toggle_category_path(category)
+    - else
+      %span.label
+        =link_to "隐藏", toggle_category_path(category)
