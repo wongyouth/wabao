@@ -1,8 +1,11 @@
 class CategoriesController < ApplicationController
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   def index
-    @categories = Category.all
+    @active_categories = Category.active
+    @categories = Category.where(parent_id: params[:parent_id].to_i).sort({name: 1}).to_a
+    parent = Category.find(params[:parent_id].to_i) rescue nil
+    @crumbs = parent ? parent.ancestors.reverse : []
   end
 
   def new
@@ -14,7 +17,6 @@ class CategoriesController < ApplicationController
     })
 
     @categories =  @categories['itemcats_get_response']['item_cats']['item_cat']
-    puts @categories
   end
 
   def create
@@ -27,6 +29,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def update
+  def toggle
+    @category = Category.find params[:id].to_i
+    @category.show = !@category.show
+    @category.save!
+    render json: @category.show
   end
 end

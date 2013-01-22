@@ -7,6 +7,7 @@ gem 'devise-i18n'
 gem 'cancan'
 gem 'open_taobao'
 gem 'highline'
+gem 'hash_extension'
 
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
@@ -23,6 +24,7 @@ gem 'haml-rails'
 gem 'rails_admin'
 #gem 'galetahub-simple_captcha', :require => 'simple_captcha', git: 'git://github.com/galetahub/simple-captcha.git'
 gem "wolcanus-simple_captcha", :require => "simple_captcha"
+#gem 'patron'
 
 # Gems used only for assets and not required
 # in production environments by default.

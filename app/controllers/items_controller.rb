@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     #@items = @q.result.page(params[:page])
     @items = Item.search(params[:q]).page(params[:page])
     @items = @items.where(category_id: params[:category_id]) if params[:category_id].present?
-    @categories = Category.all
+    @categories = Category.active
   end
 
   def create

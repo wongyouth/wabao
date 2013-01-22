@@ -8,7 +8,9 @@ Wabao::Application.routes.draw do
 
   resources :feedbacks
 
-  resources :categories
+  resources :categories do
+    put 'toggle', on: :member
+  end
 
   get "admin" => "admin#index"
 

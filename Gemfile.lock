@@ -89,6 +89,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (~> 3.1)
       railties (>= 3.1, < 4.1)
+    hash_extension (0.0.4)
     highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.1)
@@ -253,6 +254,7 @@ DEPENDENCIES
   devise
   devise-i18n
   haml-rails
+  hash_extension
   highline
   jquery-rails
   kaminari

@@ -1,18 +1,43 @@
-- if @categories.empty?
-  .alert.alert-info
-    No categories here.
+.tabbale.tabs-right
+  %ul.nav-tabs.nav
+    %li
+      =link_to '所有分类', '#all'
+    %li
+      =link_to '有效分类', '#active'
 
-- else
-  %table.table.table-hover
-    %thead
-      %tr
-        %th #
-        %th name
-        %th slug
-    - for cat in @categories
-      %tr
-        %td= cat.id
-        %td= cat.name
-        %td= cat.slug
+.tab-content
+  #active.tab-pane
+    - if @active_categories.empty?
+      .alert.alert-info
+        No categories here.
+    - else
+      %table.table.table-hover.categories
+        %thead
+          %tr
+            %th #
+            %th name
+            %th action
+        %tbody
+          = render :partial => 'category', collection: @active_categories
 
-=link_to "新增分类", new_category_path, class: "btn btn-primary"
+  #all.tab-pane
+    %ul.breadcrumb
+      %li= link_to '所有分类', categories_path
+      - @crumbs.each do |c|
+        %li
+          %span.divider &raquo;
+          = link_to c.name, categories_path(parent_id: c._id)
+
+    - if @categories.empty?
+      .alert.alert-info
+        No categories here.
+
+    - else
+      %table.table.table-hover.categories
+        %thead
+          %tr
+            %th #
+            %th name
+            %th action
+        %tbody
+          = render :partial => 'category', collection: @categories
