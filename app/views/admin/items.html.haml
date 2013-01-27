@@ -1,7 +1,7 @@
 .search-area
   = form_tag '/admin/items', class: "form-search", :method => 'get' do
     = text_field_tag 'keyword', params[:keyword]
-    = select_tag 'category_id', options_from_collection_for_select(Category.all, :id, :name, params[:category_id]), :include_blank => true
+    = select_tag 'category_id', options_from_collection_for_select(Category.active, :id, :name, params[:category_id]), :include_blank => true
     = submit_tag 'Search', class: "btn btn-primary"
 
 %ul.thumbnails

@@ -6,6 +6,7 @@ class Item
   belongs_to :user
 
   field :num_iid         , type: Integer
+  field :category_id     , type: Integer
   field :title           , type: String
   field :nick            , type: String
   field :pic_url         , type: String
