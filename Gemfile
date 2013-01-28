@@ -29,6 +29,7 @@ gem "wolcanus-simple_captcha", :require => "simple_captcha"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'turbo-sprockets-rails3'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
@@ -74,4 +75,8 @@ end
 group :production do
   gem 'unicorn'
   gem 'mysql2'
+end
+
+group :profile do
+  gem 'ruby-prof'
 end

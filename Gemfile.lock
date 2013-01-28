@@ -206,6 +206,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    ruby-prof (0.12.1)
     sass (3.2.5)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -225,6 +226,9 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    turbo-sprockets-rails3 (0.3.6)
+      railties (> 3.2.8, < 4.0.0)
+      sprockets (>= 2.0.0)
     twitter-bootstrap-rails (2.2.0)
       actionpack (>= 3.1)
       execjs
@@ -267,8 +271,10 @@ DEPENDENCIES
   rails-i18n
   rails_admin
   rspec-rails
+  ruby-prof
   sass-rails (~> 3.2.3)
   therubyracer
+  turbo-sprockets-rails3
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn

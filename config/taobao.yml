@@ -1,18 +1,18 @@
-development:
-  app_key:    '21180082'
-  secret_key: 'db912e610a04ec7c8ffae82ae04b7ad2'
-  pid:        '32858933'
-  endpoint:   "http://gw.api.taobao.com/router/rest"
-
 test:
   app_key:    'test'
   secret_key: 'test'
   pid:        'test'
   endpoint:   "http://gw.api.tbsandbox.com/router/rest"
 
-production:
+production: &production
   app_key:    '21180082'
   secret_key: 'db912e610a04ec7c8ffae82ae04b7ad2'
   pid:        '32858933'
   endpoint:   "http://gw.api.taobao.com/router/rest"
+
+development:
+  <<: *production
+
+profile:
+  <<: *production
 
