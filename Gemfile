@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'localized_country_select', '>= 0.9.2'
 gem 'rails', '3.2.11'
 gem 'rails-i18n'
 gem 'devise-i18n'
@@ -14,6 +15,7 @@ gem 'less-rails'
 gem 'therubyracer'
 gem 'chinese_pinyin'
 gem "devise"
+gem 'rufus-scheduler', :require => false
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -64,12 +66,8 @@ group :development, :test do
   gem 'pry-nav'
   gem 'rspec-rails'
   gem 'capistrano-unicorn', :require => false
-  if RUBY_VERSION > '1.9.'
-    gem 'debugger'
-  else
-    gem 'ruby-debug' 
-  end
-  gem 'pry-nav'
+  gem 'debugger' if RUBY_VERSION < '2.0'
+  gem 'quiet_assets'
 end
 
 group :production do
@@ -80,3 +78,4 @@ end
 group :profile do
   gem 'ruby-prof'
 end
+

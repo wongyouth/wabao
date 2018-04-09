@@ -69,11 +69,12 @@ class Item
       hash = {
         :method => 'taobao.taobaoke.items.get',
         :fields => "num_iid,title,nick,pic_url,price,click_url, commission,commission_num,volume",
-        :sort => 'credit_desc',
-        :guarantee => 'true',
-        :start_commissionRate => '500',
-        :end_commissionRate => '5000',
-        :mall_item => 'true',
+        :sort => 'price_asc',
+        #:sort => 'credit_desc',
+        #:guarantee => 'true',
+        #:start_commissionRate => '500',
+        #:end_commissionRate => '5000',
+        #:mall_item => 'true',
         :page_no => '1',
         :outer_code => user.id.to_s[0..7],
         :pid => OpenTaobao.config['pid']
